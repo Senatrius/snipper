@@ -1,0 +1,18 @@
+{
+  "javascript": "#F1E05A",
+  "typescript": "#3178C6",
+  "c": "#989898",
+  "cpp": "#F34B7D",
+  "php": "#4F5D95",
+  "python": "#3572A5",
+  "ruby": "#E81518",
+  "rust": "#DEA584",
+  "csharp": "#219B07",
+  "css": "#7642C5",
+  "csv": "#419766",
+  "dockerfile": "#5697AC",
+  "html": "#E34C26",
+  "vue": "#41B883",
+  "angular": "#D82530",
+  "react": "#F1E05A"
+}

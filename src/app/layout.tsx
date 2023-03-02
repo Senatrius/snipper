@@ -10,7 +10,9 @@ export default function RootLayout({
     <html lang='en'>
       <body className='flex'>
         <Sidebar />
-        {children}
+        <main className='grow overflow-y-auto bg-bg px-12 py-8'>
+          {children}
+        </main>
       </body>
     </html>
   );
