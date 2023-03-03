@@ -1,7 +1,7 @@
 import { Sidebar } from '@/components/Sidebar';
 import './globals.css';
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: {
   children: React.ReactNode;

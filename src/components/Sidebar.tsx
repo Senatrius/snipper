@@ -7,7 +7,7 @@ const links = ['overview', 'collections', 'saved', 'settings', 'about'];
 
 export const Sidebar = () => {
   return (
-    <header className=' flex-start flex h-full flex-col border-r border-border bg-component'>
+    <header className='flex-start flex h-full shrink-0 flex-col border-r border-border bg-component'>
       <Link
         href='/'
         className='w-full py-8 pl-8 pr-20'>
@@ -31,8 +31,12 @@ export const Sidebar = () => {
           ))}
         </ul>
       </nav>
-      <div className='mt-auto border-t border-border px-8 py-4 text-white'>
-        Placeholder TODO: login
+      <div className='mt-auto border-t border-border p-4 text-white'>
+        <Link
+          href='/login'
+          className='block w-full rounded-[0.25rem] bg-border py-3 px-4 text-center'>
+          Log In
+        </Link>
       </div>
     </header>
   );

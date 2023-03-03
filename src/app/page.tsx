@@ -3,7 +3,7 @@ import { Card } from '@/components/Card';
 const code =
   "<header className=' flex-start flex h-full flex-col border-r border-border bg-component'>\n<Link\n  href='/'\n  className='w-full py-8 pl-8 pr-20'>\n  <Image\n    src='/logo.svg'\n    alt='Company logo'\n    width={142}\n    height={30}\n  />\n</Link>\n<nav className='overflow-y-auto py-4'>\n  <ul className='flex w-full flex-col gap-2'>\n    {links.map(link => (\n      <li key={link}>\n        <Navlink\n          href={'/' + link}\n          icon={'/' + link + '.svg'}\n          text={link}\n        />\n      </li>\n    ))}\n  </ul>\n</nav>\n<div className='mt-auto border-t border-border px-8 py-4 text-white'>\n  Placeholder TODO: login\n</div>\n</header>";
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <h1 className='mb-8 text-[2rem] font-bold text-white'>Overview</h1>
