@@ -12,9 +12,8 @@ type TSnippet = {
 };
 
 const copyToClipboard = (str: string) => {
-  const snippet = str.replaceAll(/\t/g, '  ').replaceAll(/\n/g, '",\n"');
   if (navigator && navigator.clipboard && navigator.clipboard.writeText)
-    return navigator.clipboard.writeText('"' + snippet + '"');
+    return navigator.clipboard.writeText(str);
   return Promise.reject('The Clipboard API is not available.');
 };
 

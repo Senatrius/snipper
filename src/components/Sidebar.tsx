@@ -1,3 +1,7 @@
+'use client';
+
+import { useSupabase } from './SupabaseProvider';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -6,6 +10,18 @@ import { Navlink } from './Navlink';
 const links = ['overview', 'collections', 'saved', 'settings', 'about'];
 
 export const Sidebar = () => {
+  const { supabase, session } = useSupabase()
+
+  const handleGitHubLogin = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: 'github',
+    })
+  }
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut()
+  }
+
   return (
     <header className='flex-start flex h-full shrink-0 flex-col border-r border-border bg-component'>
       <Link
@@ -32,11 +48,15 @@ export const Sidebar = () => {
         </ul>
       </nav>
       <div className='mt-auto border-t border-border p-4 text-white'>
-        <Link
-          href='/login'
+        {!session ? <button
+          onClick={handleGitHubLogin}
           className='block w-full rounded-[0.25rem] bg-border py-3 px-4 text-center'>
           Log In
-        </Link>
+        </button> : <button
+          onClick={handleLogout}
+          className='block w-full rounded-[0.25rem] bg-border py-3 px-4 text-center'>
+          Log Out
+        </button>}
       </div>
     </header>
   );
