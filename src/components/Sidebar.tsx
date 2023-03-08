@@ -22,6 +22,8 @@ export const Sidebar = () => {
     await supabase.auth.signOut()
   }
 
+  console.log(session)
+
   return (
     <header className='flex-start flex h-full shrink-0 flex-col border-r border-border bg-component'>
       <Link
@@ -52,11 +54,12 @@ export const Sidebar = () => {
           onClick={handleGitHubLogin}
           className='block w-full rounded-[0.25rem] bg-border py-3 px-4 text-center'>
           Log In
-        </button> : <button
+        </button> : <><div className='flex items-center'><Image className="mr-2 rounded-full" src={session.user.user_metadata.avatar_url} alt="" width={32} height={32}/><div className='flex flex-col'>
+          <p>{session.user.user_metadata.preferred_username}</p><span>{session.user.user_metadata.email}</span></div></div><button
           onClick={handleLogout}
           className='block w-full rounded-[0.25rem] bg-border py-3 px-4 text-center'>
           Log Out
-        </button>}
+        </button></>}
       </div>
     </header>
   );
