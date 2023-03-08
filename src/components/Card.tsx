@@ -6,7 +6,7 @@ import colors from '../colors.json';
 type TSnippet = {
   language: string;
   name: string;
-  snippet: string;
+  tags: string[];
   description: string;
   code: string;
 };
@@ -20,7 +20,7 @@ const copyToClipboard = (str: string) => {
 export const Card = ({
   language,
   name,
-  snippet,
+  tags,
   description,
   code
 }: TSnippet) => {
@@ -80,7 +80,7 @@ export const Card = ({
         onClick={() => setShowModal(!showModal)}
         className='group relative flex flex-col items-start rounded-[0.25rem] border border-border bg-component px-3 pb-5 text-left hover:border-text focus:border-text'>
         <span
-          style={{ color: colors[language] }}
+          style={{ color: colors[language as keyof typeof values] as string }}
           className='inline-block -translate-y-1/2 rounded-sm border border-border bg-bg py-1.5 px-4 text-small font-medium uppercase tracking-wider group-hover:border-text group-focus:border-text'>
           {language}
         </span>
@@ -88,7 +88,7 @@ export const Card = ({
         <p
           style={{ color: colors[language] }}
           className='text-small'>
-          {snippet}
+          {[...tags].join('; ')}
         </p>
         <p className='mt-4 text-body leading-snug text-text'>{description}</p>
       </button>
